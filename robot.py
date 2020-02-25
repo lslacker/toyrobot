@@ -43,9 +43,9 @@ class Direction(Enum):
 class RobotContext:
     place_is_already_executed = False
 
-    def __init__(self, rows=5, columns=5):
-        self.rows = 5
-        self.columns = 5
+    def __init__(self, rows, columns):
+        self.rows = rows
+        self.columns = columns
         self.coord = None
         self.direction = None
     

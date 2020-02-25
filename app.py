@@ -7,7 +7,10 @@ from command import get_command
 MAX_ROWS = 5
 MAX_COLUMNS = 5
 
-def process(infile, robot):
+def process(infile, outfile):
+    robot = RobotContext(MAX_ROWS, MAX_COLUMNS)
+    robot.outfile = outfile
+
     for line in infile:
         robot.outfile.write(line)
         cmd = get_command(line)
@@ -18,9 +21,8 @@ def consoleUI():
     parser.add_argument('infile', default=sys.stdin, type=argparse.FileType('r'), nargs='?')
     parser.add_argument('outfile', nargs='?', type=argparse.FileType('w'), default=sys.stdout)
     args = parser.parse_args()
-    robot = RobotContext(MAX_ROWS, MAX_COLUMNS)
-    robot.outfile = args.outfile
-    process(args.infile, robot)
+    
+    process(args.infile, args.outfile)
 
 if __name__ == '__main__':
     consoleUI()

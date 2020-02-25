@@ -12,7 +12,7 @@ def process(infile, outfile, robot):
         robot.outfile.write('\n')
         cmd = get_command(line)
         cmd.exec(robot)
-    robot.outfile.close()
+    
 
 def consoleUI():
     parser = argparse.ArgumentParser(description='Simulation of a toy robot moving on a square table top,')
@@ -23,6 +23,7 @@ def consoleUI():
     args = parser.parse_args()
     robot = RobotContext(args.rows, args.columns)
     process(args.infile, args.outfile, robot)
-
+    robot.outfile.close()
+    
 if __name__ == '__main__':
     consoleUI()

@@ -10,7 +10,8 @@ RUN apt-get update && \
 
 RUN mkdir /app
 WORKDIR /app
-COPY ./src /app
+COPY ./*.py /app/
+COPY ./sample.txt /app
 
 RUN useradd -ms /bin/bash user
 

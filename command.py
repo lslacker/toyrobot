@@ -45,7 +45,7 @@ class ReportCommand(Command):
     """Print out current robot coordination, as well as direction"""
     def _do_exec(self, context):
         if context.place_is_already_executed:
-            print(context)
+            context.outfile.write('{!s}\n'.format(context))
 
 @registered_class
 class LeftCommand(Command):

@@ -13,6 +13,7 @@ WORKDIR /app
 COPY ./*.py /app/
 COPY ./sample.txt /app
 
+RUN python -m pytest
 RUN useradd -ms /bin/bash user
 
 USER user

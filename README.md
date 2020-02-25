@@ -1,5 +1,6 @@
 # ToyRobot
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e31d48f962ac417ca52db9b44dc57495)](https://app.codacy.com/manual/lslacker/toyrobot?utm_source=github.com&utm_medium=referral&utm_content=lslacker/toyrobot&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/lslacker/toyrobot.svg?branch=master)](https://travis-ci.com/lslacker/toyrobot)
 
 ```

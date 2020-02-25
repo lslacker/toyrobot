@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/lslacker/toyrobot.svg?branch=master)](https://travis-ci.com/lslacker/toyrobot)
 
+Please update sample.txt for different set of commands
+
 ## Build a run using Docker
 - Clone the repository, change to project directory
 - Update sample.txt

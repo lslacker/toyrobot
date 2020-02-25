@@ -1,10 +1,10 @@
 import pytest
 import robot
 
-@pytest.mark.parametrize("x,y,direction,expected_x, expected_y", 
-[(0, 0, 'EAST', 1, 0), 
- (1, 1, 'WEST', 0, 1), 
- (5, 5, 'NORTH', 5, 6), 
+@pytest.mark.parametrize("x,y,direction,expected_x, expected_y",
+[(0, 0, 'EAST', 1, 0),
+ (1, 1, 'WEST', 0, 1),
+ (5, 5, 'NORTH', 5, 6),
  (2, 3, 'SOUTH', 2, 2)])
 def test_adding_point_with_direction(x, y, direction, expected_x, expected_y):
     p = robot.Coordinator(x, y)
@@ -14,7 +14,7 @@ def test_adding_point_with_direction(x, y, direction, expected_x, expected_y):
     assert new_p == expected_p
 
 
-@pytest.mark.parametrize("from_direction, left_or_right, expected", 
+@pytest.mark.parametrize("from_direction, left_or_right, expected",
 [('EAST', 'left', 'NORTH')
 ,('EAST', 'right', 'SOUTH')
 ,('SOUTH', 'right', 'WEST')

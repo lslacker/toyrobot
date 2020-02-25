@@ -1,7 +1,4 @@
-import sys
-import argparse
 import logging
-from enum import Enum
 from robot import Coordinator, Direction
 from pyparsing import Literal, oneOf, Regex, OneOrMore, Optional
 
@@ -36,7 +33,7 @@ class PlaceCommand(Command):
 
 @registered_class
 class MoveCommand(Command):
-    """Command to move robot based on direction set 
+    """Command to move robot based on direction set
     in the place command"""
 
     def _do_exec(self, context):
@@ -73,15 +70,15 @@ class NoActionCommand(Command):
 
 def setCommand(tokens):
     """For each line, we will use information
-    parsed from pyparsing, look up for the 
+    parsed from pyparsing, look up for the
     required command in REGISTERED_CLASSES, and
     initialise it"""
     lookup = tokens.asDict()
     cls = REGISTERED_CLASSES.get(lookup['command'].lower())
-    a = cls(**lookup)    
+    a = cls(**lookup)
     return a
 
-number = Regex(r'\d').setParseAction(lambda t: int(t[0])) 
+number = Regex(r'\d').setParseAction(lambda t: int(t[0]))
 comma = Literal(',')
 space = Literal(' ')
 # PLACE 0,0,NORTH
@@ -95,7 +92,7 @@ commandDefn.setParseAction(setCommand)
 def get_command(line):
     try:
         return commandDefn.parseString(line)[0]
-    except Exception as e:
+    except Exception:
         pass
     
     return NoActionCommand()

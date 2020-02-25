@@ -1,5 +1,5 @@
 FROM python:3.7-buster
-MAINTAINER Luan Mai
+LABEL maintainer="Luan Mai"
 
 ENV PYTHONUNBUFFERED 1
 

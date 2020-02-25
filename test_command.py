@@ -3,9 +3,9 @@ import command
 
 
 @pytest.mark.parametrize("line,expected", 
-[('MOVE', 'MoveCommand'), 
+[('MOVE', 'MoveCommand'),
  ('LEFT', 'LeftCommand'), 
- ('RIGHT', 'RightCommand'), 
+ ('RIGHT', 'RightCommand'),
  ('PLACE 0,  0,  NORTH', 'PlaceCommand'),
  ('PLACE 0,  0,,  NORTH', 'NoActionCommand'),
  ('PLACE', 'NoActionCommand')])

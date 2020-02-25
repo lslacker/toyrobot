@@ -27,8 +27,9 @@ class PlaceCommand(Command):
 
     def _do_exec(self, context):
         context.coord = self.at
-        context.direction = self.direction
-        context.place_is_already_executed = True
+        if context.valid_move:
+            context.direction = self.direction
+            context.place_is_already_executed = True
 
 
 @registered_class

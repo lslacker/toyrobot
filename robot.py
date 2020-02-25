@@ -12,12 +12,6 @@ class Coordinator:
         coord = direction.value[0]
         return Coordinator(self.x + coord.x, self.y + coord.y)
 
-    def __str__(self):
-        return '<{}({}, {})>'.format(self.__class__.__name__, self.x, self.y)
-
-    def __repr__(self):
-        return self.__str__()
-
     def __eq__(self, coord):
         return self.x == coord.x and self.y == coord.y
 
@@ -27,6 +21,7 @@ class Direction(Enum):
     WEST = Coordinator(-1, 0), 'SOUTH', 'NORTH'
     NORTH = Coordinator(0, 1), 'WEST', 'EAST'
     SOUTH = Coordinator(0, -1), 'EAST', 'WEST'
+    STAYSTILL = Coordinator(0, 0), 'STAYSTILL', 'STAYSTILL'
 
     @classmethod
     def from_name(cls, n):
@@ -47,11 +42,14 @@ class RobotContext:
         self.rows = rows
         self.columns = columns
         self.coord = None
-        self.direction = None
+        self.direction = Direction.STAYSTILL
     
     def valid_move(self):
-        new_coord = self.coord + self.direction
-        return new_coord.x <= self.columns and new_coord.y <= self.rows
+        if self.coord:
+            new_coord = self.coord + self.direction
+            # not equal as index starts at 0
+            return new_coord.x < self.columns and new_coord.y < self.rows
+        return False
 
     def __str__(self):
         return 'Output: {},{},{}'.format(self.coord.x, self.coord.y, self.direction.name)

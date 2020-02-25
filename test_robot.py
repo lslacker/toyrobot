@@ -18,6 +18,8 @@ def test_adding_point_with_direction(x, y, direction, expected_x, expected_y):
 [('EAST', 'left', 'NORTH')
 ,('EAST', 'right', 'SOUTH')
 ,('SOUTH', 'right', 'WEST')
+,('STAYSTILL', 'right', 'STAYSTILL')
+,('STAYSTILL', 'left', 'STAYSTILL')
 ,('NORTH', 'left', 'WEST')])
 def test_turning_direction(from_direction, left_or_right, expected):
     from_direction = robot.Direction.from_name(from_direction)

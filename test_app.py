@@ -24,8 +24,8 @@ def test_input_command_output_result(test_robot):
 MOVE
 REPORT
 '''
-    expected = '''{}Output: 0,1,NORTH
-'''.format(input_commands)
+    expected = '''Output: 0,1,NORTH
+'''
 
     val = process(input_commands, test_robot)
     
@@ -38,7 +38,7 @@ def test_robot_commands_not_place(test_robot):
 LEFT
 REPORT
 '''
-    expected = '''{}'''.format(input_commands)
+    expected = ''''''
 
     val = process(input_commands, test_robot)
     
@@ -52,10 +52,10 @@ def test_robot_commands_place_outside(test_robot):
 MOVE
 REPORT
 '''
-    expected = '''{}'''.format(input_commands)
+    expected = ''''''
 
     val = process(input_commands, test_robot)
-    
+    print(val.splitlines())
     assert val == expected
     assert test_robot.valid_move() == False
     assert test_robot.place_is_already_executed == False
@@ -69,8 +69,8 @@ MOVE
 MOVE
 REPORT
 '''
-    expected = '''{}Output: 3,4,NORTH
-'''.format(input_commands)
+    expected = '''Output: 3,4,NORTH
+'''
     assert test_robot.place_is_already_executed == False
     val = process(input_commands, test_robot)
     assert val == expected
@@ -93,23 +93,9 @@ REPORT
 INVALID COMMAND
 REPORT
 '''
-    expected = '''PLACE 3,3,NORTH
-MOVE
-MOVE
-MOVE
-LEFT
-MOVE
-REPORT
-Output: 2,4,WEST
-MOVE
-MOVE
-REPORT
+    expected = '''Output: 2,4,WEST
 Output: 0,4,WEST
-RIGHT
-REPORT
 Output: 0,4,NORTH
-INVALID COMMAND
-REPORT
 Output: 0,4,NORTH
 '''
     assert test_robot.place_is_already_executed == False

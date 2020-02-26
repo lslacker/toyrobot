@@ -8,8 +8,8 @@ def process(infile, outfile, robot):
     robot.outfile = outfile
 
     for line in infile:
-        robot.outfile.write(line.strip())
-        robot.outfile.write('\n')
+        #robot.outfile.write(line.strip())
+        #robot.outfile.write('\n')
         cmd = get_command(line)
         cmd.exec(robot)
     

@@ -27,7 +27,7 @@ class PlaceCommand(Command):
 
     def _do_exec(self, context):
         context.coord = self.at
-        if context.valid_move:
+        if context.valid_move():
             context.direction = self.direction
             context.place_is_already_executed = True
 
@@ -79,7 +79,7 @@ def setCommand(tokens):
     a = cls(**lookup)
     return a
 
-number = Regex(r'\d').setParseAction(lambda t: int(t[0]))
+number = Regex(r'\d+').setParseAction(lambda t: int(t[0]))
 comma = Literal(',')
 space = Literal(' ')
 # PLACE 0,0,NORTH

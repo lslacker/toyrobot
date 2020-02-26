@@ -1,5 +1,6 @@
 # ToyRobot
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e31d48f962ac417ca52db9b44dc57495)](https://app.codacy.com/manual/lslacker/toyrobot?utm_source=github.com&utm_medium=referral&utm_content=lslacker/toyrobot&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/lslacker/toyrobot.svg?branch=master)](https://travis-ci.com/lslacker/toyrobot)
 
 ```
@@ -28,16 +29,19 @@ Please update sample.txt for different set of commands
 ## Build a run using Docker
 - Clone the repository, change to project directory
 - Update sample.txt
-- $> docker build -t . -name toyrobot
-- $> docker run -it --rm toyrobot  python app.py --infile sample.txt
-
+```
+$> docker build -t . -name toyrobot
+$> docker run -it --rm toyrobot  python app.py --infile sample.txt
+```
 # Build a run using virtual environment (Python 3.6+)
   - Clone the repository, change to project directory
-  - Create new environment: $> python -m venv env
-  - $> source env/bin/activate
-  - $> pip install -r requirements.txt
-  - $> python -m pytest
-  - $> python app.py --infile sample.txt    # read from file
-      OR $> python app.py    # read from standard input
-      OR $> python app.py --infile sample.txt --outfile output.txt   # read from file, save to output file
-
+  - Create new environment: 
+```
+  $> python -m venv env
+  $> source env/bin/activate
+  $> pip install -r requirements.txt
+  $> python -m pytest
+  $> python app.py --infile sample.txt    # read from file
+  OR $> python app.py    # read from standard input
+  OR $> python app.py --infile sample.txt --outfile output.txt   # read from file, save to output file
+```
